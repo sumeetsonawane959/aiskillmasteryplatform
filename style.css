@@ -1,0 +1,297 @@
+/* Modern Futuristic UI Styles for AI Learning Platform */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    --success-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    --dark-bg: #0a0e27;
+    --card-bg: rgba(255, 255, 255, 0.05);
+    --text-primary: #ffffff;
+    --text-secondary: #b8bcc8;
+    --accent: #667eea;
+    --accent-hover: #764ba2;
+}
+
+* {
+    font-family: 'Inter', sans-serif;
+}
+
+/* Animated background */
+.stApp {
+    background: linear-gradient(-45deg, #0a0e27, #1a1f3a, #2a2f4a, #1a1f3a);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Main container */
+.main .block-container {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+/* Cards with glassmorphism effect */
+.card {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    transition: all 0.3s ease;
+    animation: fadeInUp 0.6s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.5);
+    border-color: rgba(102, 126, 234, 0.5);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Buttons with gradient and animation */
+.stButton > button {
+    background: var(--primary-gradient);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 0.75rem 2rem;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+.stButton > button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.stButton > button:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.stButton > button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+}
+
+.stButton > button:active {
+    transform: translateY(0);
+}
+
+/* Primary button */
+.stButton > button[kind="primary"] {
+    background: var(--primary-gradient);
+}
+
+/* Secondary button */
+.stButton > button:not([kind="primary"]) {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.stButton > button:not([kind="primary"]):hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+/* Metrics with glow effect */
+[data-testid="stMetricValue"] {
+    font-size: 2.5rem !important;
+    font-weight: 700 !important;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+}
+
+/* Headers */
+h1, h2, h3 {
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: 700;
+}
+
+/* Input fields */
+.stTextInput > div > div > input,
+.stSelectbox > div > div > select {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    color: white;
+    padding: 0.75rem;
+    transition: all 0.3s ease;
+}
+
+.stTextInput > div > div > input:focus,
+.stSelectbox > div > div > select:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+/* Sidebar */
+[data-testid="stSidebar"] {
+    background: rgba(10, 14, 39, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+[data-testid="stSidebar"] .stButton > button {
+    width: 100%;
+    margin-bottom: 0.5rem;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+[data-testid="stSidebar"] .stButton > button:hover {
+    background: var(--primary-gradient);
+    border-color: transparent;
+}
+
+/* Tables */
+[data-testid="stDataFrame"] {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+/* Success/Error messages */
+.stSuccess {
+    background: rgba(79, 172, 254, 0.2);
+    border-left: 4px solid #4facfe;
+    border-radius: 8px;
+    padding: 1rem;
+    animation: slideInRight 0.5s ease;
+}
+
+.stError {
+    background: rgba(245, 87, 108, 0.2);
+    border-left: 4px solid #f5576c;
+    border-radius: 8px;
+    padding: 1rem;
+    animation: slideInRight 0.5s ease;
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Progress bars and charts */
+.stProgress > div > div {
+    background: var(--primary-gradient);
+    border-radius: 10px;
+}
+
+/* Expander */
+[data-testid="stExpander"] {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    margin-bottom: 1rem;
+}
+
+/* Radio buttons and checkboxes */
+.stRadio > div {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    padding: 1rem;
+}
+
+/* Text areas */
+.stTextArea > div > div > textarea {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    color: white;
+}
+
+/* Spinner */
+.stSpinner > div {
+    border-color: var(--accent);
+}
+
+/* Divider */
+hr {
+    border: none;
+    height: 2px;
+    background: var(--primary-gradient);
+    margin: 2rem 0;
+    opacity: 0.3;
+}
+
+/* Floating animation for icons */
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+.emoji {
+    display: inline-block;
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Glow effect for important elements */
+.glow {
+    box-shadow: 0 0 20px rgba(102, 126, 234, 0.5);
+    animation: glowPulse 2s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+    0%, 100% { box-shadow: 0 0 20px rgba(102, 126, 234, 0.5); }
+    50% { box-shadow: 0 0 30px rgba(102, 126, 234, 0.8); }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .card {
+        padding: 1.5rem;
+    }
+    
+    [data-testid="stMetricValue"] {
+        font-size: 2rem !important;
+    }
+}
+
